@@ -1,8 +1,11 @@
 import os
 import json
 import requests
-import tkinter as tk
 from datetime import datetime, timezone
+import tkinter as tk
+
+import ttkbootstrap as ttk
+from ttkbootstrap.constants import *
 
 
 class ReminderApp:
@@ -10,21 +13,21 @@ class ReminderApp:
         self.root = root
         root.title("Today's Meetings and Tasks")
         root.attributes('-topmost', True)
-        root.geometry('400x400')
+        root.geometry('420x450')
 
-        self.meeting_label = tk.Label(root, text="Today's Teams Meetings", font=('Arial', 14, 'bold'))
+        self.meeting_label = ttk.Label(root, text="Today's Teams Meetings", font=('Segoe UI', 14, 'bold'))
         self.meeting_label.pack(pady=5)
 
         self.meeting_list = tk.Listbox(root, width=50)
-        self.meeting_list.pack(pady=5)
+        self.meeting_list.pack(pady=5, padx=10, fill=BOTH, expand=True)
 
-        self.todo_label = tk.Label(root, text='To Do List', font=('Arial', 14, 'bold'))
+        self.todo_label = ttk.Label(root, text='To Do List', font=('Segoe UI', 14, 'bold'))
         self.todo_label.pack(pady=5)
 
         self.todo_list = tk.Listbox(root, width=50)
-        self.todo_list.pack(pady=5)
+        self.todo_list.pack(pady=5, padx=10, fill=BOTH, expand=True)
 
-        self.refresh_button = tk.Button(root, text='Refresh', command=self.refresh)
+        self.refresh_button = ttk.Button(root, text='Refresh', command=self.refresh, bootstyle=SUCCESS)
         self.refresh_button.pack(pady=10)
 
         self.refresh()
@@ -88,6 +91,6 @@ def load_todos():
 
 
 if __name__ == '__main__':
-    root = tk.Tk()
+    root = ttk.Window(themename="flatly")
     app = ReminderApp(root)
     root.mainloop()

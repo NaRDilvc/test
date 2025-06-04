@@ -1,6 +1,6 @@
 # Reminder App
 
-This repository includes a small FastAPI example and a simple Windows-based reminder UI written with Tkinter.
+This repository includes a small FastAPI example and a stylish Windows-based reminder UI built with ttkbootstrap.
 
 ## Running the API
 
@@ -11,7 +11,7 @@ uvicorn app:app --reload
 
 ## Reminder UI
 
-`reminder_app.py` shows today's Microsoft Teams meetings and tasks from `todo.json` in a window that stays on top.
+`reminder_app.py` shows today's Microsoft Teams meetings and tasks from `todo.json` in a window that stays on top. It uses the [ttkbootstrap](https://github.com/israel-dryer/ttkbootstrap) theme library for a more modern look.
 
 1. Install dependencies:
    ```bash
@@ -26,5 +26,7 @@ uvicorn app:app --reload
    ```bash
    python reminder_app.py
    ```
+   You can change the theme by editing `reminder_app.py` and passing a different
+   `themename` to `ttk.Window`.
 
 The window will remain above other applications and display your meetings and tasks.
